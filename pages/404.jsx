@@ -8,7 +8,7 @@ const NotFound = () => {
       <h2>That page cannot be found :(</h2>
       <p>
         Go to{' '}
-        <Link href="/jobs">
+        <Link href="/test/jobs">
           <a>Jobs</a>
         </Link>
       </p>

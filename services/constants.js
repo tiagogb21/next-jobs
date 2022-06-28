@@ -13,6 +13,6 @@ export const jobsInfo = {
 export const minutes = 60;
 export const seconds = 60;
 export const hours = 24;
-export const daysOfTheWeek = 7;
+export const lastSevenDays = 7;
 
 export const mobile = `@media (max-width: 800px)`;

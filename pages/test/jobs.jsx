@@ -1,7 +1,18 @@
 import * as React from 'react';
-import styled from 'styled-components';
-import { Button, Card, Container, Dropdown, List, Segment } from 'semantic-ui-react';
+import { Button, Card, List } from 'semantic-ui-react';
 import { useEffect, useState } from 'react';
+
+import axios from 'axios';
+
+import PropTypes from 'prop-types';
+
+import {
+  StyledForContainer,
+  StyledForHeader,
+  StyledForDropdown,
+  StyledForCards,
+  StyledForCard,
+} from '../../components/jobs';
 
 import {
   BASE_URL,
@@ -9,11 +20,18 @@ import {
   minutes,
   seconds,
   hours,
-  daysOfTheWeek,
-  mobile,
+  lastSevenDays,
 } from '../../services/constants';
 
-import getServerSideProps from '../../services/Api';
+// Doing the request to api with axios (POST):
+export const getServerSideProps = async () => {
+  const res = await axios.post(BASE_URL, jobsInfo);
+  return {
+    props: {
+      data: res.data.jobs,
+    },
+  };
+};
 
 const Jobs = ({ data }) => {
   const [company, setCompany] = useState('');
@@ -54,7 +72,7 @@ const Jobs = ({ data }) => {
     load();
   }, [data, company, jobTimeStamp]);
 
-  const time = () => new Date().getTime() - 1000 * minutes * seconds * hours * week;
+  const time = () => new Date().getTime() - 1000 * minutes * seconds * hours * lastSevenDays;
 
   return (
     <>
@@ -133,3 +151,9 @@ const Jobs = ({ data }) => {
   );
 };
 
+Jobs.propTypes = {
+  Component: PropTypes.elementType,
+  pageProps: PropTypes.object,
+}.isRequired;
+
+export default Jobs;
