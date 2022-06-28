@@ -14,3 +14,5 @@ const minutes = 60;
 const seconds = 60;
 const hours = 24;
 const daysOfTheWeek = 7;
+
+const mobile = `@media (max-width: 800px)`;
