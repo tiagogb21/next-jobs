@@ -1,6 +1,6 @@
-const BASE_URL = 'https://www.zippia.com/api/jobs/';
+export const BASE_URL = 'https://www.zippia.com/api/jobs/';
 
-const jobsInfo = {
+export const jobsInfo = {
   companySkills: true,
   dismissedListingHashes: [],
   fetchJobDesc: true,
@@ -10,9 +10,9 @@ const jobsInfo = {
   previousListingHashes: [],
 };
 
-const minutes = 60;
-const seconds = 60;
-const hours = 24;
-const daysOfTheWeek = 7;
+export const minutes = 60;
+export const seconds = 60;
+export const hours = 24;
+export const daysOfTheWeek = 7;
 
-const mobile = `@media (max-width: 800px)`;
+export const mobile = `@media (max-width: 800px)`;
